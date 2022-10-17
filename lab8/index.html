@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            const questions = [11];
+            questions[0] = "1. Which planet in the solar system would be the size of the Minecraft world, if it were real?  Neptune";
+            questions[1] = "2. What is the best-selling game console of all time? PS2";
+            questions[2] = "3. Which was the first video game to be played in space? Tetris";
+            questions[3] = "4. Roughly how many people play Roblox each month? 150 million";
+            questions[4] = "5. How many games are in the world’s largest video game collection? 20139";
+            questions[5] = "6. Which game is widely regarded as the worst video game ever created? Atari ET";           
+            questions[6] = "7. About how many gamers are there in the US? 183 million";
+            questions[7] = "8. Pacman was designed to resemble which food? Pizza";
+            questions[8] = "9. What is the world record for the all-time highest score in Super Mario Bros? 1435100";
+            questions[9] = "10. What was the name of the first video game ever created? Pong";
+            questions[10] = "You're done!"
+            questions[11] = "Stop clicking Submit"
+            
+            const answers = ["Neptune", "PS2", "Tetris", "150 million", "20139", "Atari ET", "183 million", "Pizza", "1435100", "Pong"];
+            
+            var r = 0;
+            var incorrect = 0;
+            var correct = 0;
+            var percent = 0;
+
+            function myFunction2(){
+                    document.getElementById("start").innerHTML = " ";
+                    document.getElementById("question").innerHTML = questions[r];
+                    
+                    if(document.getElementById("n").value == answers[r - 1] && r < 11){ 
+                        alert("Correct! Correct Answer: " + answers[r-1]);
+                        correct++;
+                        document.getElementById("correct").innerHTML = "Correct: " + correct;
+                    } else {
+                        if(answers[r-1] != undefined){
+                            alert("Incorrect! Correct Answer: " + answers[r-1]);
+                            incorrect++;
+                            document.getElementById("incorrect").innerHTML = "Incorrect: " + incorrect;
+                        }
+                    }
+
+                    if (r < 11){
+                        r++;
+                    }
+                    
+                    if (r == 11){ 
+                        percent = (correct / 10) * 100; 
+                        alert("Quiz Complete. You correctly answered " + correct + " out of 10 questions. Final Score: " + percent + "%");
+                    }
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2> VideoGame Trivia </h2>
+                <hr>
+                    
+                    <h3 id="start"> Click Submit to Start </h3>
+                    
+                    <h3 id="question"> </h3>
+                    
+                    <input type="text" id="n">
+                    <button onclick="myFunction2();"> Submit </button>                    
+
+                    <p id = "correct"> </p>
+                    <p id = "incorrect"> </p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
