@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<style>
+body{
+background-color:Chartreuse;
+    
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd){
+    background-color: skyblue;
+}
+tr:nth-child(even) {
+  background-color: hotpink;
+}
+tr:nth-child(odd){
+    background-color: skyblue;
+}
+</style>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+         
+        <tbody> 
+            {% for row in database %}
+            <tr>
+                <td>{{ row["symbol"] }}</td>
+                <td>{{ row["shares"] }}</td>
+                <td>{{ row["price"] }}</td>
+            </tr>
+            {% endfor %}
+       </tbody>
+    </table>
+    <p> Your total cash is ${{ cash }}</p>
+        <img src="/static/18yr.jpg">
+        <img src="/static/meme2.jpg">
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+<html lang = "en">
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <style>
+    body {
+      background-color: lightblue;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+
+    <h1 style= "color:DarkMagenta;"> Quoted </h1>
+    <h2 style= "color:DarkOrchid"> Name: {{ name }}</h2>
+    <h2 style= "color:DarkOrchid"> Price: {{ price }}</h2>
+    <h2 style= "color:DarkOrchid"> symbol: {{ symbol }}</h2>
+    
+    <body>
+    <img src= "static/trump.jpg">
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+    </body>
+
+{% endblock %}
+    

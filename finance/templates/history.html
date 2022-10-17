@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<style> 
+body{
+background-color:Chartreuse;
+    
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd){
+    background-color: skyblue;
+}
+tr:nth-child(even) {
+  background-color: hotpink;
+}
+tr:nth-child(odd){
+    background-color: skyblue;
+}
+</style>
+
+    <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+         
+        <tbody> 
+            {% for row in database %}
+            <tr>
+                <th>{{ row["symbol"] }}</th>
+                <th>{{ row["shares"] }}</th>
+                <th>{{ row["price"] }}</th>
+                <th>{{ row["date"] }}</th>
+            </tr>
+            {% endfor %}
+       </tbody>
+    </table>
+    <body>
+        <img src="/static/acauntant.jpg">
+        
+    </body>
+    
+{% endblock %}
